@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Feedback</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            align-content: center;
+            text-align: center;
+        }
+
+        #my-form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+        }
+
+
+
+        .error-message {
+            color: red;
+            font-size: 0.85em;
+            display: none;
+            /* Initially hide error messages */
+        }
+
+        @media screen and (max-width: 600px) {
+            #my-form {
+                width: 100%;
+                margin: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+        <main>
+            <h2>Feeback</h2>
+            <h3>Love something? Hate something? Let us know!</h3>
+            Note : Fields marked with an asterisk(*) are mandatory
+            <br><br>
+            <form method="post" action="" id="my-form" name="myForm">
+                <div class="control">
+                    <label>Title*:</label>
+                    <input type="radio" name="title" id="miss" value="Miss" required="required" />Miss
+                    <input type="radio" name="title" id="mr" value="Mr." required="required" />Mr.
+                    <input type="radio" name="title" id="mrs" value="Mrs." required="required" />Mrs.
+                </div>
+                <br><br>
+                <div class="control">
+                    <label for="firstName">First Name*:</label>
+                    <input type="text" name="fname" id="fname" placeholder="First Name" />
+
+                </div>
+                <div id="error_fname" style="display: none; color: red;">
+
+                </div>
+                <br>
+
+
+                <div class="control">
+                    <label for="lastName">Last Name*:</label>
+                    <input type="text" name="lname" id="lname" placeholder="Last Name" />
+                </div>
+
+                <div id="error_lname" style="display: none; color: red;">
+
+                </div>
+                <br>
+
+                <div class="control">
+                    <label for="emailId">Email Id*:</label>
+                    <input type="text" name="email" id="email" placeholder="yourname@domain.com" />
+
+                </div>
+                <div id="error_email" style="display: none; color: red;">
+
+                </div>
+                <br>
+
+                <label for="phoneNumber">Phone Number*:</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+                <br>
+                <div id="error_phoneNumber" style="display: none; color: red;">
+                </div>
+                <br>
+                <label for="streetAddress1">Street Address 1*:</label>
+                <input type="text" name="streetAddress1" id="streetAddress1" placeholder="address" />
+                <br>
+                <div id="error_streetAddress1" style="display: none; color: red;">
+                </div>
+                <br>
+                <label for="streetAddress2">Street Address 2:</label>
+                <input type="text" name="streetAddress2" id="streetAddress2" placeholder="address" />
+                <br>
+                <div id="error_streetAddress2" style="display: none; color: red;">
+                </div>
+                <br>
+                <label for="city">City*:</label>
+                <input type="text" name="city" id="city" placeholder="city" />
+                <br>
+                <div id="error_city" style="display: none; color: red;">
+                </div>
+                <br>
+                <label for="state">State*:</label>
+                <input type="text" name="state" id="state" placeholder="state" />
+                <br>
+                <div id="error_state" style="display: none; color: red;">
+                </div>
+                <br>
+                <label for="zipcode">ZipCode*:</label>
+                <input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" />
+                <br>
+                <div id="error_zipcode" style="display: none; color: red;">
+                    <!-- Invalid zipcode, Please enter valid zipcode. -->
+                    <br><br>
+                </div>
+                <br>
+                <div class="control">
+                    <label for="checkbox">How did you hear*:</label>
+                    <input id="checkbox1" type='checkbox' name="source" value="facebook" /> Facebook
+                    <input id="checkbox2" type='checkbox' name="source" value="google" /> Google
+                    <input id="checkbox3" type='checkbox' name="source" value="yelp" /> Yelp
+                </div>
+                <br><br>
+                <div class="control">
+                    <label for="comments">Comments*:</label>
+                    <textarea name="comments" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+                </div>
+                <div id="error_comments" style="display: none; color: red;">
+                </div>
+                <br>
+                <label for="selectOption">Select an option:</label>
+                <select id="selectOption" name="selectOption">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                    <option value="option4">Option 4</option>
+                    <option value="option5">Option 5</option>
+                </select>
+
+                <div id="dynamicCheckboxContainer"></div>
+                <br>
+                <div id="checkboxContainer">
+                    <input type="checkbox" id="enableCheckbox" name="enableCheckbox"> Enable Checkbox
+                </div>
+
+                <div id="textFieldContainer" style="display: none;">
+                    <label for="textField">Text Field:</label>
+                    <input type="text" id="textField" name="textField" required disabled>
+                </div>
+                <div id="error_textField" style="display: none; color: red;"></div>
+                <br><br>
+                <input type="submit" id="submit" value="Submit" name="submit" disabled>
+                <input type="reset" id="reset" value="Reset" name="reset">
+                <br><br>
+            </form>
+        </main>
+    </div>
+
+    <br><br><br>
+    <h2>Form Data</h2>
+    <br>
+    <table id="dataTable" style="display: none; " border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Street Address 1</th>
+                <th>Street Address 2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>ZipCode</th>
+                <th>How did you hear</th>
+                <th>Comments</th>
+                <th>Option Selected</th>
+                <th>Option Text</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
